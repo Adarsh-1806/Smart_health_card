@@ -1,0 +1,143 @@
+doctype html
+head
+  meta(name='viewport' content='width=device-width, initial-scale=1')
+  link(href='Doctor Details/css/wickedpicker.css' rel='stylesheet' type='text/css' media='all')
+  link(href='Doctor Details/css/style.css' rel='stylesheet' type='text/css')
+  link(href='//fonts.googleapis.com/css?family=Nunito:400,600,700&display=swap' rel='stylesheet')
+  link(href='//fonts.googleapis.com/css?family=Roboto:300,400,500,700' rel='stylesheet')
+  link(href='//fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet')
+  link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto|Varela+Round')
+  link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css')
+  link(rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons')
+  link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css')
+  link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+  link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto|Varela+Round')
+  link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css')
+  link(rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons')
+  link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css')
+  link(rel='stylesheet' href='../public/style/PatientPersonalDetails.css')
+  style
+    include ../public/style/PatientPersonalDetails.css
+    include ../public/style/style.css
+body 
+  nav.topnav
+    a.active(href='/doctor') DOCTOR
+    .dropdown
+        // <a href="PatientDetails.html">PatientDetails</a>
+        a(href='/PatientDetailsUpdate') PatientDetailsUpdate
+        a(href='/PatientRegister') PatientRegister
+    a(href='#about') ABOUT
+    // <a href="#about">INFO</a>
+    a(href='/') LOGOUT
+    .search-container
+      form(action='https://www.google.com/search')
+        button(type='submit')
+          i.fa.fa-user
+  // background
+  .DoctorDetailForm
+    h1  Patient Details 
+  .bg-agile
+    .book-appointment
+      h2 Patient Personal Details
+      form(action='')
+        .left-agileits-w3layouts.same
+          .gaps
+            p Name
+            p.det #{record.firstname} #{record.middlename}  #{record.lastname} 
+          .gaps
+            p Phone Number
+            p.det #{record.mobileno}
+          .gaps
+            p Email
+            p.det #{record.email} 
+          .gaps
+            p Aadhar Number
+            p.det #{record.aadharcard} 
+        .right-agileinfo.same
+          .gaps
+            p Date of Birth
+            p.det #{record.dob} 
+          .gaps
+            p Blood Group
+            p.det #{record.bloodgroup}
+          .gaps
+            p Gender
+            p.det #{record.gender}
+          .gaps
+            p Address 
+            p.det Surat,Gujarat 
+        .clear
+  br
+  br
+  br
+  br
+  .container-xl
+    .table-responsive
+      .table-wrapper
+        .table-title
+          .row
+            .col-sm-6
+              h2 Health Report
+            .col-sm-6
+        table.table.table-striped.table-hover
+          thead
+            tr
+              th
+              th Index
+              th Date &amp; Time
+              th Disease/Alergy
+              th Medicine
+              th Doctor Name
+          tbody
+            tr
+              td
+                //- span 1
+              td 1
+              td #{hdata.meta[0].dt}
+              td #{hdata.meta[0].disease}
+              td #{hdata.meta[0].medicine}
+              td #{hdata.meta[0].doctor}
+              td
+            tr
+              td 
+              //- span 2
+              td 2
+              td #{hdata.meta[1].dt}
+              td #{hdata.meta[1].disease}
+              td #{hdata.meta[1].medicine}
+              td #{hdata.meta[1].doctor}
+              td
+        .clearfix
+          .hint-text
+            | Showing 
+            b 5
+            |  out of 
+            b 25
+            |  entries
+          ul.pagination
+            li.page-item.disabled
+              a(href='#') Previous
+            li.page-item
+              a.page-link(href='#') 1
+            li.page-item
+              a.page-link(href='#') 2
+            li.page-item.active
+              a.page-link(href='#') 3
+            li.page-item
+              a.page-link(href='#') 4
+            li.page-item
+              a.page-link(href='#') 5
+            li.page-item
+              a.page-link(href='#') Next
+  br
+  br
+  br
+script.
+  function myFunction() {
+  var x = document.getElementById("myInput");
+  if (x.type === "password") {
+  x.type = "text";
+  } else {
+  x.type = "password";
+  }
+  }

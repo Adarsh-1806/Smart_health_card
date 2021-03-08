@@ -1,0 +1,113 @@
+body {
+    margin:0px;
+    }
+    
+    .id-card-wrapper {
+    height: 49vh;
+    width:77vh;
+    margin-left: 26em;
+    background-color: #091214 ;
+    display: flex;
+    border-radius: 15px;
+    }
+    
+    @media screen and (max-width:1360px){
+      .id-card-wrapper {
+        height: 59vh;
+        width:82vh;
+        margin-left: 12em;
+        margin-top: -38em;
+        background-color: #091214 ;
+        display: flex;
+        border-radius: 15px;
+        }
+    }
+    
+    .id-card {
+    flex-basis: 100%;
+    max-width: 33em;
+    border: 1px solid rgb(97, 245, 245);
+    color: #fff;
+    padding: 1em;
+    background-image: url(../pictures/card_final.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 15px;
+    }
+    
+    .profile-row {
+    display: flex;
+    margin-top: 1em;
+    height: 9em;
+    }
+    
+    .profile-row .dp{
+    flex-basis: 24.3%;
+    position: relative;
+    margin: 24px;
+    margin-left: 0;
+    margin-right: 6px;
+    align-self: center;
+    }
+    
+     .photo{
+      height: 120px;
+      width: 120px;
+      background-color: white;
+      margin-left: 0.5em;
+      margin-top: -12em;
+      border-radius: 360px;
+      /* background-image: url(pic1.jpg);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat; */
+      }
+    
+    .profile-row .desc {
+    flex-basis: 66.6%;
+    }
+    
+    .profile-row .dp img {
+    max-width: 100%;
+    border-radius: 100%;
+    display: block;
+    box-shadow: 0px 0px 4px 3px #12a0a0;
+    }
+    
+    .profile-row .desc {
+    padding: 1em;
+    }
+    
+    .profile-row .desc {
+    font-family: 'Orbitron', sans-serif;
+    color: #ecfcfb;
+    text-shadow: 0px 0px 4px #12a0a0;
+    letter-spacing: 1px;
+    }
+    
+    #desc{
+      margin-top: 1em;
+    }
+    
+    .heading{
+    font-family: 'Orbitron', sans-serif;
+    color: #ecfcfb;
+    text-shadow: 0px 0px 4px #12a0a0;
+    letter-spacing: 1px;
+    font-size: 28px;
+    text-align: center;
+    margin-right: 5em;
+    }
+    
+    .qrcode{
+    height: 85px;
+    width: 85px;
+    background-color: white;
+    margin-left: 25.7em;
+    margin-top: -0.2em;
+    /* background-image: url(pic1.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; */
+    }

@@ -1,0 +1,91 @@
+doctype html
+head
+  // fonts
+  link(href='//fonts.googleapis.com/css?family=Nunito:400,600,700&display=swap' rel='stylesheet')
+  link(href='//fonts.googleapis.com/css?family=Roboto:300,400,500,700' rel='stylesheet')
+  link(href='//fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet')
+
+style 
+  include ../public/style/doctorSignInDone.css
+  include ../public/style/dcard.css
+nav.topnav
+    a.active(href='/doctor') DOCTOR
+    .dropdown
+        // <a href="PatientDetails.html">PatientDetails</a>
+        a(href='/PatientDetailsUpdate') PatientDetailsUpdate
+        a(href='/PatientRegister') PatientRegister
+    a(href='#about') ABOUT
+    // <a href="#about">INFO</a>
+    a(href='/') LOGOUT
+    //- .search-container
+    //-   form(action='https://www.google.com/search')
+    //-     button(type='submit')
+    //-       i.fa.fa-user
+br
+br
+br
+.bg-agile
+  .book-appointment
+    h2 Doctor Details
+    form(action='#' method='post')
+      .left-agileits-w3layouts.same
+        .gaps
+          p Doctor Name
+          p.det #{record.name}  
+        .gaps
+          p Phone Number
+          p.det #{record.mobileno}
+        .gaps
+          p Email
+          p.det #{record.dob} 
+      .right-agileinfo.same
+        .gaps
+          p License Number
+          p.det #{record.license_no} 
+        .gaps
+          p City
+          p.det #{record.city}
+        .gaps
+          p Gender
+          p.det #{record.gender}
+      .clear
+      // <input type="submit" value="Make an appointment">
+br
+br
+br
+br
+.displaycard
+  link(href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet')
+  .id-card-wrapper
+    .id-card
+      .heading
+        | Smart Health Card
+      .profile-row
+        .dp
+          // <img src="https://via.placeholder.com/420x420">
+        .desc
+          form(action='#' method='post')
+            | Name
+            p #{record.name} 
+              //- input(type='text' name='Patient Name' placeholder='' required='')
+            br
+            | Lic. No
+            p #{record.license_no}
+              //- input(type='text' name='Number' placeholder='' required='')
+            br
+            | Date of Birth 
+            p #{record.dob}
+              //- input(type='text' name='email' placeholder='' required='')
+            br
+            | BG 
+            p #{record.bloodgroup}
+              //- input(type='text' name='email' placeholder='' required='')
+            br
+      .qrcode
+        // <img src="pic1.jpg" alt="#">
+      .photo
+        // <img src="pic1.jpg" alt="#">
+br
+br
+br
+

@@ -1,0 +1,83 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Smart Health Card
+  link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+  link(rel='stylesheet' href='../public/style/index.css')
+  link#bootstrap-css(href='//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css' rel='stylesheet')
+  script(src='//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js')
+  script(src='//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+
+  style
+    include ../public/style/index.css
+body
+section.firsec
+  .setnavbar
+  nav.topnav
+    a.active(href='/') HOME
+    a(href='/doctor') DOCTOR
+    a(href='/patient') PATIENT
+    a(href='#about') ABOUT
+    a(href='#contact_us') CONTACT US
+    .search-container
+      form(action='https://www.google.com/search')
+        input(type='text' placeholder='Search Here...' name='search')
+        button(type='submit')
+          i.fa.fa-search
+
+    .dropdown
+      button.dropbtn
+        | LOGIN 
+        i.fa.fa-caret-down
+      .dropdown-content
+        a(href='/doctor') Doctor
+        a(href='/Patient') Patient
+
+  .logo
+    //- img.back(src='./Pictures/pic5.jpg' alt="Error loadind page")
+    //- <img src='./Pictures/pic3.jpg' alt="Error loadind page"class="back">
+    h1 Smart Health Card
+    p#quote
+      | &ldquo;It is health that is the real wealth,<br> not pieces of gold and silver.”<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; – Mahatma Gandhi
+  //- .box
+  //-   | Enter Card Number
+  //-   input#b(type='text' size='30' font-size='17px')
+  //
+    <div class="sign">
+    <button type="button" class="sign-up" value="SIGN UP">Sign Up</button>
+    <button type="button" class="sign-in" value="SIGN IN">Sign In</button>
+    </div>
+section.secsec
+  .para1
+    h1 Corona Virus
+    p.coronapara
+      | The best way to prevent and slow down transmission is to be well informed about the COVID-19 virus, the disease it causes and how it spreads. Protect yourself and others from infection by washing your hands or using an alcohol based rub frequently and not touching your face.
+  .i1
+    img.im1(src='./Pictures/corona.jpg' alt='getting network')
+section.thirdsec
+  .para1
+    h1 Cancer
+    p.cancerpara
+      | The American Cancer Society has updated its guideline on diet and physical activity for cancer prevention. Staying at a healthy weight, staying active throughout life, following a healthy eating pattern, and avoiding or limiting alcohol may greatly reduce a person&apos;s lifetime risk of developing or dying from cancer.
+  .i1
+    img.im1(src='./Pictures/cancer.jfif' alt='getting network')
+section#contact_us.contact
+  h1.text-center Contact Us
+  .form
+    input#name.form-input(type='text' name='name' placeholder='Enter Your name')
+    input#phone.form-input(type='text' name='phone' placeholder='Enter Your Phone')
+    input#email.form-input(type='email' name='email' placeholder='Enter Your email')
+    textarea#text.form-input(name='text' cols='30' rows='10' placeholder='Ellaborate your concern')
+    button.submitbtn Submit
+  .addset
+    h1.slogon1 We are available 24X7
+    i#phoneicon.fa.fa-phone.icon  &nbsp; 9574532745
+    br
+    i#envelope.fa.fa-envelope.icon &nbsp; healthcard@gmail.com
+    h1.slogon Getting Touch With Us
+    i#whatsapp.fa.fa-whatsapp.icon
+    i#facebook.fa.fa-facebook.icon
+    i#twitter.fa.fa-twitter.icon
+    i#linkedin.fa.fa-linkedin.icon
+

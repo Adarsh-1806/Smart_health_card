@@ -1,0 +1,89 @@
+.logo{
+    font-size: 40px;
+    font-family: serif;
+    color: #204b4b;
+    margin-top: 0;
+    padding: 0;
+  }
+  body,html
+  {
+  margin: 0;
+  scroll-behavior: smooth;
+  }
+  body
+  {
+  background-position: center;
+  background-attachment: fixed;
+  background-image: url('./../pictures/picpatient.jpg');
+  }
+  .back{
+      
+      background-size: cover;
+      background-position: center;
+  }
+
+  .formset{
+      margin-top: 12em;
+      margin-left: 30em;
+      opacity: 0.85;
+  }
+
+  .loginform{
+      color: #204b4b;
+      background-color: #fff;
+      padding: 2em;
+      border-radius: 15px;
+  }
+
+  .input-container {
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    margin-bottom: 15px;
+    font-size: 20px;
+  }
+  
+  .icon {
+    padding: 10px;
+    background: #204b4b;
+    color: white;
+    min-width: 50px;
+    text-align: center;
+  }
+  
+  .input-field {
+    width: 100%;
+    padding: 10px;
+    outline: none;
+    font-size: 20px;
+  }
+  
+  .input-field:focus {
+    border: 2px solid #204b4b;
+  }
+  
+  .btnsignin {
+    background-color: #204b4b;
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 1;
+    font-size: 20px;
+  }  
+  .btnsignin:hover {
+    opacity: 1;
+  }
+
+  .input-conainer a{
+      text-decoration: none;
+      color: blue;
+  }
+
+  .input-conainer a:hover{
+      background-color: #204b4b;
+      color: #fff;
+      border-radius: 5px;
+      padding: 5px;
+  }

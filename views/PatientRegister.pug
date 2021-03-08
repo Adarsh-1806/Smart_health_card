@@ -1,0 +1,158 @@
+doctype html
+head
+  // Meta tags
+  title PatientRegister
+  meta(charset='utf-8')
+  link(rel='stylesheet' href='Patient Register/css/font-awesome.css')
+  // google fonts
+  link(href='//fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i' rel='stylesheet')
+  link(href='//fonts.googleapis.com/css?family=Josefin+Sans:300,400,400i,700' rel='stylesheet')
+  
+style 
+  include ../public/style/PatientRegister.css
+.w3ls-banner
+  .heading
+    h1 Register Here...
+  .containerform
+    .heading
+      h2 Please Enter Patients Details
+      p
+        | Fill the form below and submit your query we will contact you as soon as possible.
+    .agile-form
+      form(action='PatientRegister' method='post')
+        ul.field-list
+          li
+            label.form-label
+              | FIrst Name 
+              span.form-required  * 
+            .form-input
+              input(type='text' name='firstname' required='')
+          li
+            label.form-label
+              | Middle Name 
+              span.form-required  * 
+            .form-input
+              input(type='text' name='middlename' required='')
+          li
+            label.form-label
+              | Last Name 
+              span.form-required  * 
+            .form-input
+              input(type='text' name='lastname' required='')
+          li
+            label.form-label
+              | Date of Birth
+              span.form-required  *
+            .form-input
+              input(type='date' name='dob' required='') 
+          li
+            label.form-label
+              | Age
+              span.form-required  * 
+            .form-input
+              input(type='text' name='userage' required='')
+          li
+            label.form-label
+              | Blood Group
+              span.form-required  * 
+            .form-input
+              span.form-sub-label
+                select(name='bloodgroup')
+                  option &nbsp;
+                  option(value='A+')  A+ 
+                  option(value='A-')  A- 
+                  option(value='B+')  B+ 
+                  option(value='B-')  B- 
+                  option(value='O+')  O+ 
+                  option(value='O-')  O- 
+                  option(value='AB+')  AB+ 
+                  option(value='AB-')  AB- 
+          li
+            label.form-label
+              | Gender
+              span.form-required  * 
+            .form-input
+              select.form-dropdown(name='gender' required='')
+                option(value='') &nbsp;
+                option(value='Male')  Male 
+                option(value='Female')  Female 
+                option(value='Transgender')  Transgender 
+          li
+          li
+            label.form-label
+              | Aadhar Card Number
+              span.form-required  * 
+            .form-input
+              input(type='tel' name='aadharcard' required='' pattern="[0-9]{4}-[0-9]{4}-[0-9]{4}")
+          li
+            label.form-label
+              | Emergency Number
+              span.form-required  * 
+            .form-input
+              input(type='tel' name='emermobileno' required='' pattern="[0-9]{10}")
+          li
+            label.form-label
+              | Family Doctor Number
+              span.form-required  * 
+            .form-input
+              input(type='tel' name='familydoctormobile' required='' pattern="[0-9]{10}")
+          li
+            label.form-label
+              | Mobile Number
+              span.form-required  * 
+            .form-input
+              input(type='tel' name='mobileno' required='' pattern="[0-9]{10}")
+          li
+            label.form-label
+              | E-Mail Address
+              span.form-required  * 
+            .form-input
+              input(type='email' name='email' required='')
+          li
+            label.form-label
+              | Address
+              span.form-required  * 
+            .form-input
+              input(type='text' name='address' required='')
+          li
+            label.form-label
+              | Username
+              span.form-required  * 
+            .form-input
+              input(type='text' name='username' required='')
+          li
+            label.form-label
+              | Password
+              span.form-required  * 
+            .form-input
+              input(type='password' name='pass' required='')
+          li
+            label.form-label
+              | Conferm Password
+              span.form-required  * 
+            .form-input
+              input(type='password' name='confpass' required='')
+            //- .form-input.add
+            //-   span.form-sub-label
+            //-     input(type='text' name='street_address' placeholder=' ' required='')
+            //-     label.form-sub-label1  Street Address 
+            //-   span.form-sub-label
+            //-     input(type='text' name='street_address2' placeholder=' ' required='')
+            //-   span.form-sub-label
+            //-     input(type='text' name='city' placeholder=' ' required='')
+            //-     label.form-sub-label1  City 
+            //-   span.form-sub-label
+            //-     input(type='text' name='state' placeholder=' ' required='')
+            //-   span.form-sub-label
+            //-     input(type='text' name='zipcode' placeholder=' ' required='')
+            //-     label.form-sub-label1  Postal / Zip Code 
+            //-   span.form-sub-label
+            //-     input(type='text' name='country' placeholder=' ' required='')
+            //-     label.form-sub-label1  Country 
+        .submit-reset
+          input(type='submit' value='Next')
+          input(type='reset' value='Reset')
+      br
+  br
+  br
+  br

@@ -1,0 +1,117 @@
+body,html
+    {
+    margin: 0;
+    height: 100%;
+    scroll-behavior: fixed;
+    }
+    body
+    {
+    background-position: center;
+    background-attachment: fixed;
+    background-image: url('../pictures/pic4.jpg');
+    }
+.logo{
+    font-size: 40px;
+    font-family: serif;
+    color: #204b4b;
+    margin-top: 0;
+    padding: 0;
+  }
+
+.back{
+      background-size: cover;
+      background-position: center;
+      height: 100%;
+  }
+
+  .formset{
+      margin-top: 10em;
+      margin-left: 30em;
+      opacity: 0.85;
+  }
+
+  .loginform{
+      color: #204b4b;
+      background-color: #fff;
+      padding: 2em;
+      padding-bottom: 3em;
+      border-radius: 15px;
+  }
+
+  .input-container {
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    margin-bottom: 15px;
+    font-size: 20px;
+  }
+
+  .input-container input[type=text]{
+    font-size: 20px;
+  }
+  
+  .icon {
+    padding: 10px;
+    background: #204b4b;
+    color: white;
+    min-width: 50px;
+    text-align: center;
+  }
+  
+  .input-field {
+    width: 100%;
+    padding: 10px;
+    outline: none;
+    font-size: 20px;
+  }
+  
+  .input-field:focus {
+    border: 2px solid #204b4b;
+  }
+  
+  .btnsignin {
+    background-color: #204b4b;
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 1;
+    font-size: 20px;
+  }  
+  .btnsignin:hover {
+    opacity: 1;
+  }
+
+  .input-conainer a{
+      text-decoration: none;
+      color: blue;
+  }
+
+  .input-conainer a:hover{
+      background-color: #204b4b;
+      color: #fff;
+      border-radius: 5px;
+      padding: 5px;
+  }
+
+  #forgotpassword{
+    color: #204b4b;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 1;
+    margin-left: 23.5em;
+    font-size: 25px;
+    margin-top: -2.5em;
+  }
+  
+  #gotohome{
+    margin-top: 1em;
+    font-size: 25px;
+    color: #204b4b;
+    border: none;
+    cursor: pointer;
+    margin-left: 11em;
+    margin-top: -2em;
+  }

@@ -1,0 +1,47 @@
+doctype html
+head
+  title DoctorSignIn
+  meta(charset='utf-8')
+  link(rel='stylesheet' href='Sign In Form/css/font-awesome.css' type='text/css' media='all')
+  link(href='//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&subset=devanagari,latin-ext' rel='stylesheet')
+style 
+  include ../public/style/doctor.css
+.content-w3ls
+  .content-bottom
+    h2
+      | Sign In Here 
+      i.fa.fa-hand-o-down(aria-hidden='true')
+    form(action='/doctor' method='POST')
+      .field-group
+        .wthree-field
+          input#text1(name='username' type='text' placeholder='Username' required='')
+      .field-group
+        .wthree-field
+          input#myInput(name='password' type='Password' placeholder='Password')
+      .field-group
+        .check
+          label.checkbox.w3l
+            input(type='checkbox' onclick='myFunction()')
+            i  
+            | show password
+        // script for show password
+        script.
+          function myFunction() {
+          var x = document.getElementById("myInput");
+          if (x.type === "password") {
+          x.type = "text";
+          } else {
+          x.type = "password";
+          }
+          }
+      .wthree-field
+        input#saveForm(name='saveForm' type='submit' value='sign in')
+      ul.list-login
+        li.switch-agileits
+          label.switch
+            input(type='checkbox')
+            span.slider.round
+            |keep signed in
+        li
+          a.text-right(href='#') forgot password?
+        li.clearfix
