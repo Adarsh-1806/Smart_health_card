@@ -47,7 +47,7 @@ script.
   }
   });
   });
-    
+  
 body 
   nav.topnav
     a.active(href='/doctor') DOCTOR
@@ -72,16 +72,13 @@ body
         .left-agileits-w3layouts.same
           .gaps
             p Name
-            p.det #{record.firstname} #{record.middlename}  #{record.lastname} 
-            //- input(type='text' name='Name' id='name' )
+            p.det #{record.firstname} #{record.middlename}  #{record.lastname}
           .gaps
             p Phone Number
             p.det #{record.mobileno}
-            //- input(type='text' name='Number' placeholder='' )
           .gaps
             p Email
             p.det #{record.email} 
-            //- input(type='email' name='email' placeholder='')
           .gaps
             p Aadhar Number
             p.det #{record.aadharcard} 
@@ -89,15 +86,12 @@ body
           .gaps
             p Date of Birth
             p.det #{record.dob} 
-            //- input(name='Text' type='text' value='' )
           .gaps
             p Blood Group
             p.det #{record.bloodgroup}
-            //- input(name='Text' type='text' value='')
           .gaps
             p Gender
             p.det #{record.gender}
-            //- input(name='Text' type='text' value='' )
           .gaps
             p Address 
             p.det Surat,Gujarat 
@@ -136,35 +130,21 @@ body
             th Doctor 
             th Actions
         tbody
-          tr
+         -for (var i = 0; i < len; ++i) 
+           tr
             td
               span.custom-checkbox
                 input#checkbox1(type='checkbox' name='options[]' value='1')
                 label(for='checkbox1')
-            td #{hdata.meta[0].dt}
-            td #{hdata.meta[0].disease}
-            td #{hdata.meta[0].medicine}
-            td #{hdata.meta[0].doctor}
+            td #{hdata.meta[i].dt}
+            td #{hdata.meta[i].disease}
+            td #{hdata.meta[i].medicine}
+            td #{hdata.meta[i].doctor}
             td
               a.edit(href='#editEmployeeModal' data-toggle='modal')
                 i.material-icons(data-toggle='tooltip' title='Edit') &#xE254;
               a.delete(href='#deleteEmployeeModal' data-toggle='modal')
                 i.material-icons(data-toggle='tooltip' title='Delete') &#xE872;
-          tr
-            td
-              span.custom-checkbox
-                input#checkbox1(type='checkbox' name='options[]' value='1')
-                label(for='checkbox1')
-            td #{hdata.meta[1].dt}
-            td #{hdata.meta[1].disease}
-            td #{hdata.meta[1].medicine}
-            td #{hdata.meta[1].doctor}
-            td
-              a.edit(href='#editEmployeeModal' data-toggle='modal')
-                i.material-icons(data-toggle='tooltip' title='Edit') &#xE254;
-              a.delete(href='#deleteEmployeeModal' data-toggle='modal')
-                i.material-icons(data-toggle='tooltip' title='Delete') &#xE872;
-          
       .clearfix
         .hint-text
           | Showing 
@@ -190,11 +170,14 @@ body
 #addEmployeeModal.modal.fade
   .modal-dialog
     .modal-content
-      form(action='/adddata' method='post')
+      form(action='/adddata' method='post' )
         .modal-header
           h4.modal-title Add Record
           button.close(type='button' data-dismiss='modal' aria-hidden='true') &times;
         .modal-body
+          .form-group
+            label confirm Username
+            input.form-control(type='text' name='username' required='')
           .form-group
             label Date
             input.form-control(type='date' name='dt' required='')
@@ -209,7 +192,7 @@ body
             input.form-control(type='text' name='doctor' required='')
         .modal-footer
           input.btn.btn-default(type='button' data-dismiss='modal' value='Cancel')
-          input.btn.btn-success(type='submit' value='Add')
+          input.btn.btn-success(type='submit' value='Add' )
 #deleteEmployeeModal.modal.fade
   .modal-dialog
     .modal-content
