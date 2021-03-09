@@ -170,21 +170,36 @@ app.post('/doctorgetpatient',async(req,res)=>{
     const username = req.body.username;
     const useremail = await Patient.findOne({username});
     const hreport = await health_report.findOne({patient_id:useremail._id});
-    res.status(200).render('doctorgetpatient',{record:useremail,hdata:hreport.toObject()});
+    var data = null;
+    var len = null;
+    if(hreport != null) {
+        data = hreport.toObject();
+        len = Object.keys(data.meta).length; 
+    }else{ len = 0;}
+    res.status(200).render('doctorgetpatient',{record:useremail,hdata:data,len:len});
 })
 
 app.post('/adddata',async(req,res)=>{
     console.log("Data Entering");
     try{
-        const adddata = new health_report({
-            patient_id : "nathi atyare",
-            meta:{dt: req.body.dt,
-            disease: req.body.disease,
-            medicine: req.body.medicine,
-            doctor: req.body.doctor,}
-        })
-        console.log(adddata);
-        const register_p = await adddata.save();
+        const username = req.body.username;
+        const useremail = await Patient.findOne({username});
+        var objFriends = { dt: req.body.dt,
+                disease: req.body.disease,
+                medicine: req.body.medicine,
+                doctor: req.body.doctor,};
+        health_report.findOneAndUpdate(
+            { patient_id: useremail._id }, 
+            { $push: { meta: objFriends  } },
+            { upsert : true },
+           function (error, success) {
+                 if (error) {
+                     console.log(error);
+                 } else {
+                     console.log(success);
+                 }
+             }
+        );
         console.log("Data Entered Successfully");
         res.status(200).render('doctor');
     }catch(error){
