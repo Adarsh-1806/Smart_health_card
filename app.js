@@ -95,7 +95,7 @@ app.post('/patient',async(req,res)=>{
         const isMatch= await bcrypt.compare(password,useremail.pass);
         
         if(isMatch){
-            const hreport = await health_report.findOne({patient_id:"sdhtrithsfb"});
+            const hreport = await health_report.findOne({patient_id:useremail._id});
             // console.log(hreport.toObject().length());
             // hdata:JSON.parse(hreport)}
             res.status(200).render('PatientPersonalDetails',{record:useremail,hdata:hreport.toObject()});
@@ -121,7 +121,6 @@ app.post('/doctor',async(req,res)=>{
             res.send("Invalid Password");
         }
     }catch (error){
-        console.log("Khabar j nathi padti su error 6");
         console.log(error);
         res.status(400).send('Invalid Username/Email');
     }

@@ -1,0 +1,72 @@
+doctype html
+head
+  // fonts
+  link(href='//fonts.googleapis.com/css?family=Nunito:400,600,700&display=swap' rel='stylesheet')
+  link(href='//fonts.googleapis.com/css?family=Roboto:300,400,500,700' rel='stylesheet')
+  link(href='//fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet')
+  link#bootstrap-css(href='//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css' rel='stylesheet')
+  script(src='//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js')
+  script(src='//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+style.
+  .navbar , .navbar a {
+  cursor: pointer;
+  }
+  .navbar-brand{
+  font-size: 25px;
+  }
+  .nav-link{
+  font-size: 18px;
+  }
+  .nav-item{
+  padding-left: 1em;
+  }
+  .navbar{
+  border-radius: 30px;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+  }
+  #heartbeat-icon{
+  font-size: 30px;
+  padding-right: 0.25em;
+  color: #22a7cf;
+  }
+  #username{
+  font-size: 18px;
+  list-style-type: none;
+  }
+  #usericon{
+  padding-right: 0.5em;
+  }
+  @media (min-width: 767px) {
+  .navbar .dropdown-toggle:not(.nav-link)::after {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: .5em;
+  vertical-align: 0;
+  border-bottom: .3em solid transparent;
+  border-top: .3em solid transparent;
+  border-left: .3em solid;
+  }
+  }
+.navbar.navbar-expand-md.navbar-light.bg-white.mb-4(role='navigation')
+  i#heartbeat-icon.fa.fa-heartbeat.icon
+  a.navbar-brand(href='/') Smart Health Card
+  button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarCollapse' aria-controls='navbarCollapse' aria-expanded='false' aria-label='Toggle navigation')
+    span.navbar-toggler-icon
+  #navbarCollapse.collapse.navbar-collapse
+    ul.navbar-nav.mr-auto
+      li.nav-item.active
+        a.nav-link(href='/') Home 
+          span.sr-only (current)
+      li.nav-item.active
+        a.nav-link(href='/doctor') Doctor
+      li.nav-item.active
+        a.nav-link(href='/patient') Patient
+      li.nav-item.active
+        a.nav-link(href='#') About 
+      li.nav-item.active
+        a.nav-link(href='/doctor') Log Out
+    //- li#username
+    //-   i#usericon.fa.fa-user.icon
+    //-   | #{record.name} 

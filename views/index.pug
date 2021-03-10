@@ -12,28 +12,7 @@ head
   style
     include ../public/style/index.css
 body
-section.firsec
-  .setnavbar
-  nav.topnav
-    a.active(href='/') HOME
-    a(href='/doctor') DOCTOR
-    a(href='/patient') PATIENT
-    a(href='#about') ABOUT
-    a(href='#contact_us') CONTACT US
-    .search-container
-      form(action='https://www.google.com/search')
-        input(type='text' placeholder='Search Here...' name='search')
-        button(type='submit')
-          i.fa.fa-search
-
-    .dropdown
-      button.dropbtn
-        | LOGIN 
-        i.fa.fa-caret-down
-      .dropdown-content
-        a(href='/doctor') Doctor
-        a(href='/Patient') Patient
-
+  include ./navbar.pug
   .logo
     //- img.back(src='./Pictures/pic5.jpg' alt="Error loadind page")
     //- <img src='./Pictures/pic3.jpg' alt="Error loadind page"class="back">
