@@ -51,15 +51,13 @@ app.get('/doctorSignInDone',ckecking,async(req,res)=>{
     const print = await doctor.findOne({username: log_user.username});
     res.status(200).render('doctorSignInDone.pug',{record:print});
 })
-app.get('/PatientDetailsUpdate',(req,res)=>{
-    res.status(200).render('PatientDetailsUpdate.pug');
-})
 app.get('/PatientDetailsUpdateEnter',(req,res)=>{
     res.status(200).render('PatientDetailsUpdateEnter.pug');
 })
 app.get('/PatientDisease',(req,res)=>{
     res.status(200).render('PatientDisease.pug');
 })
+
 // app.get('/PatientPersonalDetails',ckecking,async(req,res)=>{
 //     var log_user = req.user;
 //     // console.log(log_user)
@@ -205,6 +203,12 @@ app.post('/adddata',async(req,res)=>{
         console.log(error);
     }
 })
+app.post('/healthcard',async(req,res)=>{
+    const username = req.body.username;
+    const useremail = await Patient.findOne({username});
+    res.status(200).render('healthcard.pug',{record:useremail});
+})
+
 //jsonWebtoken 
 
     

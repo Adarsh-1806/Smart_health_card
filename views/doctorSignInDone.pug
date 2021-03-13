@@ -3,16 +3,41 @@ head
   link(href='//fonts.googleapis.com/css?family=Nunito:400,600,700&display=swap' rel='stylesheet')
   link(href='//fonts.googleapis.com/css?family=Roboto:300,400,500,700' rel='stylesheet')
   link(href='//fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet')
+  link(href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet')
   link#bootstrap-css(href='//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css' rel='stylesheet')
   script(src='//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js')
   script(src='//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js')
-
 style 
   include ../public/style/doctorSignInDone.css
   include ../public/style/dcard.css
-
+  include ../public/style/navbar.css
 body
-  include ./navbar.pug
+  include ./links.pug 
+  br
+  nav.navbar.navbar-expand-lg.navbar-light.bg-light
+    a.navbar-brand(href='/')
+      i#heartbeaticon.fa.fa-heartbeat.icon
+      |  Smart Health Card
+    button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+      span.navbar-toggler-icon
+    #navbarSupportedContent.collapse.navbar-collapse
+      ul.navbar-nav.mr-auto
+        li.nav-item 
+          a.nav-link(href='/')
+            | Home 
+            span.sr-only (current)
+        li.nav-item
+          a.nav-link(href='#addEmployeeModal' data-toggle='modal') Patient 
+        li.nav-item
+          a.nav-link(href='/PatientRegister') Patient register
+        li.nav-item
+          a.nav-link(href='/') About
+        li.nav-item
+          a.nav-link(href='/') Log Out
+    li#usrname
+      i.usericon.fa.fa-user.icon
+      |#{record.name}
+  br
 br
 br
 br
@@ -65,9 +90,10 @@ br
             br
             | Date of Birth 
             p #{record.dob}
+            br
             | BG 
             p #{record.bloodgroup}
-            br
+            
       .qrcode
         // <img src="pic1.jpg" alt="#">
       .photo
@@ -75,4 +101,17 @@ br
 br
 br
 br
+#addEmployeeModal.modal.fade
+  .modal-dialog
+    .modal-content
+      form(action='/doctorgetpatient' method='post' )
+        .modal-header
+          h4.modal-title Enter Patient ID
+          button.close(type='button' data-dismiss='modal' aria-hidden='true') &times;
+        .modal-body
+          .form-group
+            input.form-control(type='text' name='username' required='')
+        .modal-footer
+          //- input.btn.btn-default(type='button' data-dismiss='modal' value='Cancel')
+          input.btn.btn-success(type='submit' value='Get Details' )
 

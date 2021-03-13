@@ -24,6 +24,7 @@ head
 style
   include ../public/style/PatientPersonalDetails.css
   include ../public/style/style.css
+  include ../public/style/navbar.css
 script.
   $(document).ready(function(){
   // Activate tooltip
@@ -49,19 +50,31 @@ script.
   });
   
 body 
-  nav.topnav
-    a.active(href='/doctor') DOCTOR
-    .dropdown
-        // <a href="PatientDetails.html">PatientDetails</a>
-        a(href='/PatientDetailsUpdate') PatientDetailsUpdate
-        a(href='/PatientRegister') PatientRegister
-    a(href='#about') ABOUT
-    // <a href="#about">INFO</a>
-    a(href='/PatientDetailsUpdate') LOGOUT
-    .search-container
-      form(action='https://www.google.com/search')
-        button(type='submit')
-          i.fa.fa-user
+  br
+  nav.navbar.navbar-expand-lg.navbar-light.bg-light
+    a.navbar-brand(href='#')
+      i#heartbeaticon.fa.fa-heartbeat.icon
+      |  Smart Health Card
+    button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+      span.navbar-toggler-icon
+    #navbarSupportedContent.collapse.navbar-collapse
+      ul.navbar-nav.mr-auto
+        li.nav-item 
+          a.nav-link(href='/')
+            | Home 
+            span.sr-only (current)
+        li.nav-item
+          a.nav-link(href='/PatientDetailsUpdate') Patient 
+        li.nav-item
+          a.nav-link(href='/PatientRegister') Patient register
+        li.nav-item
+          a.nav-link(href='/') About
+        li.nav-item
+          a.nav-link(href='/') Log Out
+    li#usrname
+      i.usericon.fa.fa-user.icon
+      |#{record.name}
+  br
   // background
   .DoctorDetailForm
     h1  Patient Details 

@@ -1,0 +1,46 @@
+.navbar{
+    border-radius: 30px;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    background-color: black !important;
+  }
+
+.navbar-brand{
+    font-size: 25px;
+    color: white !important;
+  }
+
+.nav-item{
+    font-size: 20px;
+    margin-left: 0.5em;
+  }
+
+.nav-link{
+    color: white !important;
+  }
+
+.nav-link:hover{
+    background-color: blueviolet;
+  }
+
+.nav-item:active{
+    color: blueviolet !important;
+  }
+
+#heartbeaticon{
+    color: white !important;
+    padding-right: 0.2em;
+  }
+
+.navbar-toggler{
+    background-color: white;
+  }
+
+#usrname{
+    color: white;
+    font-size: 20px;
+    list-style-type: none;
+}
+.usericon{
+    padding-right: 0.4em;
+}

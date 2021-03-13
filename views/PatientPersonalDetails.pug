@@ -2,7 +2,6 @@ doctype html
 head
   meta(name='viewport' content='width=device-width, initial-scale=1')
   link(href='Doctor Details/css/wickedpicker.css' rel='stylesheet' type='text/css' media='all')
-  link(href='Doctor Details/css/style.css' rel='stylesheet' type='text/css')
   link(href='//fonts.googleapis.com/css?family=Nunito:400,600,700&display=swap' rel='stylesheet')
   link(href='//fonts.googleapis.com/css?family=Roboto:300,400,500,700' rel='stylesheet')
   link(href='//fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet')
@@ -11,28 +10,39 @@ head
   link(rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons')
   link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css')
   link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
-  link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto|Varela+Round')
-  link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css')
-  link(rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons')
-  link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css')
   link(rel='stylesheet' href='../public/style/PatientPersonalDetails.css')
+  //healthcard
+  script(src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js')
+  script(src='https://code.jquery.com/jquery-3.5.1.min.js')
+  //- for select all checkbox
+  script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js') 
   style
     include ../public/style/PatientPersonalDetails.css
     include ../public/style/style.css
+    include ../public/style/navbar.css
 body 
-  nav.topnav
-    a.active(href='/doctor') DOCTOR
-    .dropdown
-        // <a href="PatientDetails.html">PatientDetails</a>
-        a(href='/PatientDetailsUpdate') PatientDetailsUpdate
-        a(href='/PatientRegister') PatientRegister
-    a(href='#about') ABOUT
-    // <a href="#about">INFO</a>
-    a(href='/') LOGOUT
-    .search-container
-      form(action='https://www.google.com/search')
-        button(type='submit')
-          i.fa.fa-user
+  br
+  nav.navbar.navbar-expand-lg.navbar-light.bg-light
+    a.navbar-brand(href='#')
+      i#heartbeaticon.fa.fa-heartbeat.icon
+      |  Smart Health Card
+    button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+      span.navbar-toggler-icon
+    #navbarSupportedContent.collapse.navbar-collapse
+      ul.navbar-nav.mr-auto
+        li.nav-item 
+          a.nav-link(href='/')
+            | Home 
+            span.sr-only (current)
+        li.nav-item
+          a.nav-link(href='#addEmployeeModal' data-toggle='modal') Health Card
+        li.nav-item
+          a.nav-link(href='/') About
+        li.nav-item
+          a.nav-link(href='/') Log out
+      li#usrname
+        .usericon.fa.fa-user.icon
+        |#{record.firstname} #{record.lastname}
   // background
   .DoctorDetailForm
     h1  Patient Details 
@@ -48,7 +58,7 @@ body
             p Phone Number
             p.det #{record.mobileno}
           .gaps
-            p Email
+            p#eid Email
             p.det #{record.email} 
           .gaps
             p Aadhar Number
@@ -108,27 +118,27 @@ body
               td #{hdata.meta[1].doctor}
               td
         .clearfix
-          .hint-text
-            | Showing 
-            b 5
-            |  out of 
-            b 25
-            |  entries
-          ul.pagination
-            li.page-item.disabled
-              a(href='#') Previous
-            li.page-item
-              a.page-link(href='#') 1
-            li.page-item
-              a.page-link(href='#') 2
-            li.page-item.active
-              a.page-link(href='#') 3
-            li.page-item
-              a.page-link(href='#') 4
-            li.page-item
-              a.page-link(href='#') 5
-            li.page-item
-              a.page-link(href='#') Next
+          //- .hint-text
+          //-   | Showing 
+          //-   b 5
+          //-   |  out of 
+          //-   b 25
+          //-   |  entries
+          //- ul.pagination
+          //-   li.page-item.disabled
+          //-     a(href='#') Previous
+          //-   li.page-item
+          //-     a.page-link(href='#') 1
+          //-   li.page-item
+          //-     a.page-link(href='#') 2
+          //-   li.page-item.active
+          //-     a.page-link(href='#') 3
+          //-   li.page-item
+          //-     a.page-link(href='#') 4
+          //-   li.page-item
+          //-     a.page-link(href='#') 5
+          //-   li.page-item
+          //-     a.page-link(href='#') Next
   br
   br
   br
@@ -141,3 +151,17 @@ script.
   x.type = "password";
   }
   }
+#addEmployeeModal.modal.fade
+  .modal-dialog
+    .modal-content
+      form(action='/healthcard' method='post' )
+        .modal-header
+          h4.modal-title Show Healthcard
+          button.close(type='button' data-dismiss='modal' aria-hidden='true') &times;
+        .modal-body
+          .form-group
+            label confirm Username
+            input.form-control(type='text' name='username' required='')
+        .modal-footer
+          input.btn.btn-default(type='button' data-dismiss='modal' value='Cancel')
+          input.btn.btn-success(type='submit' value='Add' )

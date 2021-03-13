@@ -4,59 +4,261 @@ head
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
   title Smart Health Card
   link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
-  link(rel='stylesheet' href='../public/style/index.css')
   link#bootstrap-css(href='//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css' rel='stylesheet')
   script(src='//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js')
   script(src='//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js')
-
+  link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' integrity='sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm' crossorigin='anonymous')
+  link(rel='stylesheet' href='../public/style/index.css')
+  link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+  link(rel='stylesheet' href='https://use.fontawesome.com/releases/v5.6.3/css/all.css' integrity='sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/' crossorigin='anonymous')
+  script(src='https://code.jquery.com/jquery-3.2.1.slim.min.js' integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN' crossorigin='anonymous')
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js' integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q' crossorigin='anonymous')
+  script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js' integrity='sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl' crossorigin='anonymous')
   style
     include ../public/style/index.css
 body
   include ./navbar.pug
-  .logo
-    //- img.back(src='./Pictures/pic5.jpg' alt="Error loadind page")
-    //- <img src='./Pictures/pic3.jpg' alt="Error loadind page"class="back">
-    h1 Smart Health Card
-    p#quote
-      | &ldquo;It is health that is the real wealth,<br> not pieces of gold and silver.”<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; – Mahatma Gandhi
-  //- .box
-  //-   | Enter Card Number
-  //-   input#b(type='text' size='30' font-size='17px')
-  //
-    <div class="sign">
-    <button type="button" class="sign-up" value="SIGN UP">Sign Up</button>
-    <button type="button" class="sign-in" value="SIGN IN">Sign In</button>
-    </div>
-section.secsec
-  .para1
-    h1 Corona Virus
-    p.coronapara
-      | The best way to prevent and slow down transmission is to be well informed about the COVID-19 virus, the disease it causes and how it spreads. Protect yourself and others from infection by washing your hands or using an alcohol based rub frequently and not touching your face.
-  .i1
-    img.im1(src='./Pictures/corona.jpg' alt='getting network')
-section.thirdsec
-  .para1
-    h1 Cancer
-    p.cancerpara
-      | The American Cancer Society has updated its guideline on diet and physical activity for cancer prevention. Staying at a healthy weight, staying active throughout life, following a healthy eating pattern, and avoiding or limiting alcohol may greatly reduce a person&apos;s lifetime risk of developing or dying from cancer.
-  .i1
-    img.im1(src='./Pictures/cancer.jfif' alt='getting network')
-section#contact_us.contact
-  h1.text-center Contact Us
-  .form
-    input#name.form-input(type='text' name='name' placeholder='Enter Your name')
-    input#phone.form-input(type='text' name='phone' placeholder='Enter Your Phone')
-    input#email.form-input(type='email' name='email' placeholder='Enter Your email')
-    textarea#text.form-input(name='text' cols='30' rows='10' placeholder='Ellaborate your concern')
-    button.submitbtn Submit
-  .addset
-    h1.slogon1 We are available 24X7
-    i#phoneicon.fa.fa-phone.icon  &nbsp; 9574532745
-    br
-    i#envelope.fa.fa-envelope.icon &nbsp; healthcard@gmail.com
-    h1.slogon Getting Touch With Us
-    i#whatsapp.fa.fa-whatsapp.icon
-    i#facebook.fa.fa-facebook.icon
-    i#twitter.fa.fa-twitter.icon
-    i#linkedin.fa.fa-linkedin.icon
-
+  br
+script(src='../home.js')
+section
+  #carouselExampleIndicators.carousel.slide(data-ride='carousel')
+    ol.carousel-indicators
+      li.active(data-target='#carouselExampleIndicators' data-slide-to='0')
+      li(data-target='#carouselExampleIndicators' data-slide-to='1')
+      li(data-target='#carouselExampleIndicators' data-slide-to='2')
+    .carousel-inner
+      .carousel-item.active
+        img.d-block.w-100(src='../pictures/images/banner1.jpg' alt='First slide')
+        .carousel-caption.d-none.d-md-block
+          h1 Smart Health Card
+          p Your life save.
+          br
+          br
+          br
+          br
+          br
+          br
+          br
+          br
+          br
+      .carousel-item
+        img.d-block.w-100(src='../pictures/images/banner2.jpg' alt='Second slide')
+      .carousel-item
+        img.d-block.w-100(src='../pictures/images/banner3.jpg' alt='Second slide')
+    a.carousel-control-prev(href='#carouselExampleIndicators' role='button' data-slide='prev')
+      span.carousel-control-prev-icon(aria-hidden='true')
+      span.sr-only Previous
+    a.carousel-control-next(href='#carouselExampleIndicators' role='button' data-slide='next')
+      span.carousel-control-next-icon(aria-hidden='true')
+      span.sr-only Next
+section#about.w3l-grids-3.py-5
+  .container.py-md-5.py-3
+    .row.bottom-ab-grids.align-items-center
+      .col-lg-6.bottom-ab-left
+        h6.sub-titlehny Trust Us
+        h3.hny-title Caring for the growing needs of our community.
+        .separatorhny
+        p.my-3
+          | Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur hic odio voluptatem
+          | tenetur consequatur. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
+          | Nulla mollis dapibus nunc, ut rhoncus
+          | turpis sodales quis.
+        a#btn1.btn.btn-style.btn-primary.mt-4(href='about.html') Read More
+      .col-lg-6.bottom-ab-right.mt-lg-0.mt-5.pl-lg-4
+        img.img-fluid(src='../pictures/images/2.jpg' alt='')
+section#background.w3l-ab-features.py-5
+  .container.py-md-5.py-3
+    #features.row.features-w3pvt-main
+      .col-lg-4.col-md-6.feature-gird
+        .row.features-hny-inner-gd
+          .col-md-2.col-2.featured_grid_left
+            .icon-hnynumber
+              span.hnynumber 01
+          .col-md-10.col-10.featured_grid_right_info
+            h4
+              a.link-hny(href='#url') Qualified Doctors
+            p
+              | Lorem ipsum dolor sit amet elit consec tetur adipisi elit.,Vestibulum ante ipsum primis in faucibus
+              | orci luctus et ultrices posuere cubilia Curae rem!
+      .col-lg-4.col-md-6.feature-gird.mt-md-0.mt-4
+        .row.features-hny-inner-gd
+          .col-md-2.col-2.featured_grid_left
+            .icon-hnynumber
+              span.hnynumber 02
+          .col-md-10.col-10.featured_grid_right_info
+            h4
+              a.link-hny(href='#url') 24 Hour Service
+            p
+              | Lorem ipsum dolor sit amet elit consec tetur adipisi elit.,Vestibulum ante ipsum primis in faucibus
+              | orci luctus et ultrices posuere cubilia Curae rem!
+      .col-lg-4.col-md-6.feature-gird.mt-lg-0.mt-md-5.mt-4
+        .row.features-hny-inner-gd
+          .col-md-2.col-2.featured_grid_left
+            .icon-hnynumber
+              span.hnynumber 03
+          .col-md-10.col-10.featured_grid_right_info
+            h4
+              a.link-hny(href='#url')
+                | We Are Here For You
+            p
+              | Lorem ipsum dolor sit amet elit consec tetur adipisi elit.,Vestibulum ante ipsum primis in faucibus
+              | orci luctus et ultrices posuere cubilia Curae rem!
+section#grids5-block.w3l-blogluxe-hny.py-5
+  .container.py-md-5
+    .row.grid-view
+      .col-lg-5.pr-lg-5
+        h6.sub-titlehny The Power to Heal
+        h3.hny-title The perfect balance between Health &amp; Care.
+        .separatorhny
+        p.my-3
+          | Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur hic odio voluptatem
+          | tenetur consequatur primis.
+        a#btn2.btn.btn-style.btn-primary.mt-4(href='about.html') Read More
+      .col-lg-7.mt-lg-0.mt-4
+        .row.grids5-info
+          .col-6
+            a.zoom(href='#')
+              img.img-fluid(src='../pictures/images/s1.jpg' alt='')
+          .col-6
+            a.zoom(href='#')
+              img.img-fluid(src='../pictures/images/s2.jpg' alt='')
+section.w3l-news-sec
+  .news-mainhny.py-5
+    .container.text-center.py-lg-3
+      .title-content.text-center.mb-lg-5.mb-4
+        h6.sub-titlehny Our Services
+        h3.hny-title
+          | Our Departments
+        .separatorhny
+    #carouselExampleIndicators.carousel.slide(data-ride='carousel')
+      ol.carousel-indicators
+        li.active(data-target='#carouselExampleIndicators' data-slide-to='0')
+        li(data-target='#carouselExampleIndicators' data-slide-to='1')
+        li(data-target='#carouselExampleIndicators' data-slide-to='2')
+      .carousel-inner
+        .carousel-item.active
+          //- img.d-block.w-100(src='...' alt='First slide')
+          .card-deck
+            .card
+              img.card-img-top(src='../pictures/images/1.jpg' alt='Card image cap')
+              .card-body
+                h5.card-title Card title
+                p.card-text
+                  | This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
+                p.card-text
+                  small.text-muted Last updated 3 mins ago
+            .card
+              img.card-img-top(src='../pictures/images/2.jpg' alt='Card image cap')
+              .card-body
+                h5.card-title Card title
+                p.card-text This card has supporting text below as a natural lead-in to additional content.
+                p.card-text
+                  small.text-muted Last updated 3 mins ago
+            .card
+              img.card-img-top(src='../pictures/images/3.jpg' alt='Card image cap')
+              .card-body
+                h5.card-title Card title
+                p.card-text
+                  | This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.
+                p.card-text
+                  small.text-muted Last updated 3 mins ago
+        .carousel-item
+          //- img.d-block.w-100(src='...' alt='Second slide')
+          .card-deck
+            .card
+              img.card-img-top(src='../pictures/images/4.jpg' alt='Card image cap')
+              .card-body
+                h5.card-title Card title
+                p.card-text
+                  | This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
+                p.card-text
+                  small.text-muted Last updated 3 mins ago
+            .card
+              img.card-img-top(src='../pictures/images/5.jpg' alt='Card image cap')
+              .card-body
+                h5.card-title Card title
+                p.card-text This card has supporting text below as a natural lead-in to additional content.
+                p.card-text
+                  small.text-muted Last updated 3 mins ago
+            .card
+              img.card-img-top(src='../pictures/images/6.jpg' alt='Card image cap')
+              .card-body
+                h5.card-title Card title
+                p.card-text
+                  | This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.
+                p.card-text
+                  small.text-muted Last updated 3 mins ago
+      a.carousel-control-prev(href='#carouselExampleIndicators' role='button' data-slide='prev')
+        span.carousel-control-prev-icon(aria-hidden='true')
+        span.sr-only Previous
+      a.carousel-control-next(href='#carouselExampleIndicators' role='button' data-slide='next')
+        span.carousel-control-next-icon(aria-hidden='true')
+        span.sr-only Next
+footer#footer-bg.w3l-footer-29-main
+  .footer-29-w3l.py-5
+    .container.py-lg-4
+      .row.footer-top-29
+        .col-lg-4.col-md-6.col-sm-7.footer-list-29.footer-1.pr-lg-5
+          #logo.footer-logo.mb-3
+            i#heartbeaticon.fa.fa-heartbeat.icon
+            | Smart Health Card
+          p
+            | Lorem ipsum viverra feugiat. Pellen tesque libero ut justo, ultrices in ligula. Semper at
+            | tempufddfel. Lorem ipsum dolor sit amet Semper at elit.
+          .main-social-footer-29.mt-4
+            i.fa.fa-facebook
+        .col-lg-2.col-md-6.col-sm-5.col-6.footer-list-29.footer-2.mt-sm-0.mt-5
+          ul
+            h6#links.footer-title-29 Links
+            li
+              a(href='about.html') About
+            li
+              a(href='services.html') Department
+            li
+              a(href='blog.html')  Blog
+            li
+              a(href='#careers')  Careers
+            li
+              a(href='#help') Help
+            li
+              a(href='contact.html') Contact us
+        .col-lg-2.col-md-6.col-sm-5.col-6.footer-list-29.footer-3.mt-lg-0.mt-5
+          h6#services.footer-title-29 Services
+          ul
+            li
+              a(href='#medicine') Instant Medicine
+            li
+              a(href='#kidney') Kidney Solution
+            li
+              a(href='#knee') Knee Surgery
+            li
+              a(href='#eye') Eye Care
+            li
+              a(href='#surgery') Body Surgery
+            li
+              a(href='#care') Dental Care
+        .col-lg-4.col-md-6.col-sm-7.footer-list-29.footer-4.mt-lg-0.mt-5
+          h6#information.footer-title-29 Infomation
+          p.mb-3 Lorem ipsum viverra feugiat. Pellen tesque libero ut justo, ultrices in ligula.
+          p
+            strong Address :
+            |  Preventive, 343 Honey Avenue street, NY - 62617.
+          p.my-2
+            strong Phone :
+            a(href='tel:+12 23456799') +12 23456799
+          p
+            strong Email :
+            a(href='mailto:info@example.com') info@example.com
+section#copyright.w3l-copyright
+  .container
+    .row.bottom-copies
+      p.col-lg-8.copy-footer-29
+        | &copy; 2021 Preventive. All rights reserved.
+      .col-lg-4.footer-list-29
+        ul.d-flex.text-lg-right
+          li
+            a(href='#careers')  Careers
+          li.mx-lg-5.mx-md-4.mx-1
+            a(href='#privacymy-lg-2 my-2') Privacy Policy
+          li
+            a(href='contact.html') Contact us
