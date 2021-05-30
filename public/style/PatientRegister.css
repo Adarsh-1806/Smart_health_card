@@ -146,8 +146,8 @@ textarea {
     width: 98%;
 	background-color: rgba(255, 255, 255, 0.63);
 }
-input[type="submit"] ,input[type="reset"] {
-    display: block;
+
+input[type="reset"] {
     margin: auto;
     padding: 10px 25px;
     margin: 125px;
@@ -161,7 +161,22 @@ input[type="submit"] ,input[type="reset"] {
 	outline: 0;
 	cursor: pointer;
 }
-input[type="submit"]:hover,input[type="reset"]:hover {
+input[type="submit"] {
+    margin: auto;
+    padding: 10px 25px;
+    /* margin: 125px; */
+    margin-top: 25px;
+    margin-bottom: 0px;
+	background-color: #009688;
+    border: 1px solid #00BCD4;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+	outline: 0;
+	cursor: pointer;
+}
+
+input[type="submit"]:hover,input[type="button"]:hover, input[type="reset"]:hover {
     background-color: #E91E63;
     border: 1px solid red;
     color: white;

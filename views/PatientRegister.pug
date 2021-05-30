@@ -17,9 +17,9 @@ style
     .heading
       h2 Please Enter Patients Details
       p
-        | Fill the form below and submit your query we will contact you as soon as possible.
-    .agile-form
-      form(action='PatientRegister' method='post')
+        | Fill the form below and submit it. we will contact you as soon as possible.
+    #form-one.agile-form
+      form(action='/PatientRegister' method='post')
         ul.field-list
           li
             label.form-label
@@ -92,7 +92,7 @@ style
               input(type='tel' name='emermobileno' required='' pattern="[0-9]{10}")
           li
             label.form-label
-              | Family Doctor Number
+              | Family Doctor Mo.
               span.form-required  * 
             .form-input
               input(type='tel' name='familydoctormobile' required='' pattern="[0-9]{10}")
@@ -131,28 +131,34 @@ style
               | Conferm Password
               span.form-required  * 
             .form-input
-              input(type='password' name='confpass' required='')
-            //- .form-input.add
-            //-   span.form-sub-label
-            //-     input(type='text' name='street_address' placeholder=' ' required='')
-            //-     label.form-sub-label1  Street Address 
-            //-   span.form-sub-label
-            //-     input(type='text' name='street_address2' placeholder=' ' required='')
-            //-   span.form-sub-label
-            //-     input(type='text' name='city' placeholder=' ' required='')
-            //-     label.form-sub-label1  City 
-            //-   span.form-sub-label
-            //-     input(type='text' name='state' placeholder=' ' required='')
-            //-   span.form-sub-label
-            //-     input(type='text' name='zipcode' placeholder=' ' required='')
-            //-     label.form-sub-label1  Postal / Zip Code 
-            //-   span.form-sub-label
-            //-     input(type='text' name='country' placeholder=' ' required='')
-            //-     label.form-sub-label1  Country 
-        .submit-reset
-          input(type='submit' value='Next')
-          input(type='reset' value='Reset')
+              input(type='password' name='confpass' required='')          
+          //- .submit-reset
+        div
+          input(type='reset'  value='reset')
+          input(type="submit" value='Register') 
       br
+  //- #form-two.containerform(style='display:none;')
+  //-   .heading
+  //-     h2 Please Enter Patient's Profile Image 
+  //-   .agile-form
+  //-     form(method='POST' action='/upload-profile-pic' enctype='multipart/form-data')
+  //-       label.form-label
+  //-         | Add Image
+  //-         span.form-required
+  //-       .form-input
+  //-         input(type='file' name='profile_pic' required='')
+  //-       div
+  //-         input(type='button' onclick='form1()' value='previous') 
+  //-         input(type='submit' name='btn_upload_profile_pic' value='Upload')
   br
   br
   br
+  //- script.
+  //-   function form1() {
+  //-   document.getElementById("form-one").style.display = "block";
+  //-   document.getElementById("form-two").style.display = "none";
+  //-   }
+  //-   function form2() {
+  //-   document.getElementById("form-one").style.display = "none";
+  //-   document.getElementById("form-two").style.display = "block";
+  //-   }

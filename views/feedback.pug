@@ -1,0 +1,138 @@
+doctype html
+head
+  title Feedback
+  meta(name='viewport' content='width=device-width, initial-scale=1')
+  style
+    include ../public/style/PatientPersonalDetails.css
+    include ../public/style/style.css
+body 
+  include links.pug
+  br
+  nav.navbar.navbar-expand-lg.navbar-light.bg-light
+    a.navbar-brand(href='#')
+      i#heartbeaticon.fa.fa-heartbeat.icon
+      |  Smart Health Card
+    button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+      span.navbar-toggler-icon
+    #navbarSupportedContent.collapse.navbar-collapse
+      ul.navbar-nav.mr-auto
+        li.nav-item 
+          a.nav-link(href='/patient/information')
+            | Profile
+            span.sr-only (current)
+        li.nav-item
+          a.nav-link(href='/healthcard') Health Card
+        li.nav-item
+          a.nav-link(href='/patient/myappoint' )  My Appoint
+        li.nav-item
+          a.nav-link(href='/') About
+        li.nav-item
+          a.nav-link(href='/') Log out
+      li#usrname
+        .usericon.fa.fa-user.icon
+        |#{record.firstname} #{record.lastname}
+  // background
+  .DoctorDetailForm
+    h1 Available  Doctors
+  .container-xl
+    .table-responsive
+      .table-wrapper
+        .table-title
+          .row
+            .col-sm-6
+              h2 List of doctors
+            .col-sm-6
+        table.table.table-striped.table-hover
+          if len >= 1
+            thead
+              tr
+                th Index
+                th Name
+                th Contact No.
+                th Rating
+                th Degree
+            tbody
+                -for (var i = 0; i < len; i++) 
+                  -const cnt = i;
+                  -const did = obj[i]._id;
+                  tr
+                    th #{i+1}
+                    td #{obj[i].name}
+                    td #{obj[i].mobileno}
+                    td #{obj[i].rating}  
+                    td #{obj[i].study}  
+                    td 
+                        button(type='button', href='#ratings' data-toggle='modal' onclick='saveid("'+ (obj[i]._id)+'")') Rate
+                    
+          else
+            b No Doctors Available
+        .clearfix
+  br
+  br
+  br
+#ratings.modal.fade
+    .modal-dialog
+        .modal-content
+            .modal-body
+                | How was Your Experience with us...
+                br 
+                br
+                .rating(tabindex='1' onblur='calculateRating(this)')
+                    i.fa.fa-star-o(aria-hidden='true' value='1' onclick='clickStar(this)')
+                    i.fa.fa-star-o(aria-hidden='true' value='2' onclick='clickStar(this)')
+                    i.fa.fa-star-o(aria-hidden='true' value='3' onclick='clickStar(this)')
+                    i.fa.fa-star-o(aria-hidden='true' value='4' onclick='clickStar(this)')
+                    i.fa.fa-star-o(aria-hidden='true' value='5' onclick='clickStar(this)')
+                    .rating-display
+            .modal-footer
+                button(type='button', onclick='myFunction()' ) Submit
+script.
+    var rating = document.querySelector(".rating");
+    var ratingDisplayEle = document.querySelector(".rating-display");
+    var count = null;
+    var doctor_id = null;
+    //add event listener
+    function clickStar(ele){
+      var clickedStar = ele;
+      //value of the star
+      var ratingValue = parseInt(clickedStar.getAttribute("value"));
+      //change the color of the star
+      for(var i=0; i<ratingValue; i++){
+        rating.children[i].classList.add("clicked");
+        for(var j=ratingValue; j<=4; j++){
+          if(rating.children[j].classList.contains("clicked")){
+            rating.children[j].classList.remove("clicked");
+          }
+        }
+      }
+    }
+
+    //function to calculate rating
+    function calculateRating(ele){
+      //check how many elements are having clicked class
+      var ratingCount = 0;
+      for(var i=0; i<ele.children.length; i++){
+        if(ele.children[i].classList.contains("clicked")){
+          ratingCount++;
+          count = ratingCount;
+        }
+      }
+      ratingDisplayEle.textContent = `You have selected ${ratingCount} rating out of 5`;
+    }
+
+    //funcion for Updates Ratings
+    function myFunction(){
+      try{
+      alert("Thank You For Your Feedback...");
+      $.post('/updateratings' , {count:count,doctor_id:doctor_id})
+      }catch(error){
+        document.write(error);
+      }
+    }
+    function saveid(id){
+      try{
+      doctor_id = id;
+      }catch(error){
+        document.write(error);
+      }
+    }

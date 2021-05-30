@@ -12,11 +12,17 @@ mongoose.connect('mongodb://localhost:27017/Healthcard_database', {
 
 
 // db.doctors.insertOne({
-//   name:"Dr. Ramika Sharma",
-//   license_no: 25142,
-//   dob: "05/11/1989",
-//   gender: "Female",
-//   mobileno: 9574788540,
-//   emermobileno: 9054248902,
-//   City: "Mumbai"
+//   name:"Dr. Rajesh Balar",
+//   license_no: 13375,
+//   dob: "20/03/1975",
+//   study: "PhD, DPhil,MPhil",
+//   gender: "Male",
+//   mobileno: 9726950844,
+//   bloodgroup:"O-",
+//   email: "dr.rjbalar@gmail.com",
+//   username: "rjbalar",
+//   pass: "rjbalar",
+//   emermobileno: 9054803251,
+//   city: "Surat",
+//   rating: 4.5,
 // })

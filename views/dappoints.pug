@@ -1,0 +1,85 @@
+doctype html
+head
+  title Your Appoinments
+  meta(name='viewport' content='width=device-width, initial-scale=1')
+  style
+    include ../public/style/PatientPersonalDetails.css
+    include ../public/style/style.css
+body 
+  include links.pug
+  br
+  nav.navbar.navbar-expand-lg.navbar-light.bg-light
+    a.navbar-brand(href='/')
+      i#heartbeaticon.fa.fa-heartbeat.icon
+      |  Smart Health Card
+    button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+      span.navbar-toggler-icon
+    #navbarSupportedContent.collapse.navbar-collapse
+      ul.navbar-nav.mr-auto
+        li.nav-item 
+          a.nav-link(href='/doctor/information')
+            | Profile
+            span.sr-only (current)
+        li.nav-item
+          a.nav-link(href='#getpatient' data-toggle='modal') Patient 
+        li.nav-item
+          a.nav-link(href='/PatientRegister') Patient register
+        li.nav-item
+          a.nav-link(href='/dappoint') Appointments
+        li.nav-item
+          a.nav-link(href='/') About
+        li.nav-item
+          a.nav-link(href='/') Log Out
+    li#usrname
+      i.usericon.fa.fa-user.icon
+      |#{log_doctor.name}
+  br
+  // background
+  .DoctorDetailForm
+    h1 Your Appointments
+  .container-xl
+    .table-responsive
+      .table-wrapper
+        .table-title
+          .row
+            .col-sm-6
+              h2 Patients
+            .col-sm-6
+        table.table.table-striped.table-hover
+          if len >= 1
+            thead
+              tr
+                th
+                th Index
+                th Name
+                th Contact
+                th Age
+                th Date
+            tbody
+                -for (var i = 0; i < len; i++)
+                  -const cnt = i;
+                  -const did = record[i]._id; 
+                  tr
+                    th
+                    th #{i+1}
+                    td #{record[i].name}
+                    td #{record[i].contact}
+                    td #{record[i].age}  
+                    td #{record[i].date.year}-#{record[i].date.month}-#{record[i].date.date}
+                    td 
+                      button(type='button', onclick='myFunction("'+ (record[i]._id)+'")' ) Done
+          else
+            b You have No Appointmets
+        .clearfix
+  br
+  br
+  br
+  script(type='text/javascript').
+    function myFunction(cn) {
+      try{
+      alert("Are You Sure?\nSelected appointment Will be removed...");
+      $.post('/modifyappoint' , {appoint_id:cn})
+      }catch(error){
+        document.write(error);
+      }
+    }

@@ -16,6 +16,10 @@ const doctor_info = new mongoose.Schema({
         type: String,
         required: true
     },
+    study: {
+        type: String,
+        // required: true
+    },
     gender: {
         type: String,
         required: true
@@ -25,8 +29,8 @@ const doctor_info = new mongoose.Schema({
         required: true,
         unique: true
     },
-    emermobileno: {
-        type: Number,
+    email: {
+        type: String,
         required: true,
         unique: true
     },
@@ -35,6 +39,18 @@ const doctor_info = new mongoose.Schema({
         required: true
     },
     city: {
+        type: String,
+        required: true,
+    },
+    profile: {
+        type: String,
+        // required: true,
+    },
+    rating: {
+        type: Number,
+        // required: true,
+    },
+    email: {
         type: String,
         required: true,
     },

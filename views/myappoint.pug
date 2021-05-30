@@ -1,0 +1,71 @@
+doctype html
+head
+  title Your Appoinment
+  meta(name='viewport' content='width=device-width, initial-scale=1')
+  style
+    include ../public/style/PatientPersonalDetails.css
+    include ../public/style/style.css
+body 
+  include links.pug
+  br
+  nav.navbar.navbar-expand-lg.navbar-light.bg-light
+    a.navbar-brand(href='#')
+      i#heartbeaticon.fa.fa-heartbeat.icon
+      |  Smart Health Card
+    button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+      span.navbar-toggler-icon
+    #navbarSupportedContent.collapse.navbar-collapse
+      ul.navbar-nav.mr-auto
+        li.nav-item 
+          a.nav-link(href='/patient/information')
+            | Profile
+            span.sr-only (current)
+        li.nav-item
+          a.nav-link(href='/healthcard') Health Card
+        li.nav-item
+          a.nav-link(href='#appoint' data-toggle='modal') Appointment 
+        li.nav-item
+          a.nav-link(href='/') About
+        li.nav-item
+          a.nav-link(href='/') Log out
+      li#usrname
+        .usericon.fa.fa-user.icon
+        |#{log_user.firstname} #{log_user.lastname}
+  // background
+  .DoctorDetailForm
+    h1 Your Appointments
+  .container-xl
+    .table-responsive
+      .table-wrapper
+        .table-title
+          .row
+            .col-sm-6
+              h2 List
+            .col-sm-6
+        table.table.table-striped.table-hover
+          if len >= 1
+            thead
+              tr
+                th
+                th Index
+                th Doctor
+                th Patient
+                th Contact
+                th Date
+                th Rating
+            tbody
+              -for (var i = 0; i < len; i++) 
+                tr
+                  th
+                  th #{i+1}
+                  td #{doctor[i].name}
+                  td #{record[i].name}
+                  td #{doctor[i].mobileno}  
+                  td #{record[i].date.year}-#{record[i].date.month}-#{record[i].date.date} 
+                  td #{doctor[i].rating}  
+          else
+            b No Appointmets
+        .clearfix
+  br
+  br
+  br

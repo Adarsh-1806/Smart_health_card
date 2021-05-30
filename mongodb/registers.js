@@ -10,19 +10,19 @@ const patient_info = new mongoose.Schema({
     },
     middlename: {
         type: String,
-        required: true
+        // required: true
     },
     lastname: {
         type: String,
-        required: true
+        // required: true
     },
     dob: {
         type: String,
-        required: true
+        // required: true
     },
     userage: {
         type: Number,
-        required: true
+        // required: true
     },
     bloodgroup: {
         type: String,
@@ -30,7 +30,7 @@ const patient_info = new mongoose.Schema({
     },
     gender: {
         type: String,
-        required: true
+        // required: true
     },
     email: {
         type: String,
@@ -39,7 +39,7 @@ const patient_info = new mongoose.Schema({
     },
     aadharcard: {
         type: String,
-        required: true,
+        // required: true,
         unique:true
     },
     mobileno: {
@@ -62,17 +62,21 @@ const patient_info = new mongoose.Schema({
     },
     emermobileno: {
         type: Number,
-        required: true,
+        // required: true,
         unique: true
     },
     familydoctormobile: {
         type: Number,
-        required: true,
+        // required: true,
         unique: true
     },
     address: {
         type: String,
-        required: true,
+        // required: true,
+    },
+    profile: {
+        type: String,
+        // required: true,
     },
     // tokens:[{
     //     token:{
@@ -83,21 +87,16 @@ const patient_info = new mongoose.Schema({
 })
 
 //JSON web token
-// patient_info.methods.generateAuthToken = async function(){
-//     try{
-//         const token = await jwt.sign({_id:register_patient._id.toString()},"Hellomynameisadarshmoradiyathisthisissdpproject");
-//         this.tokens = this.tokens.concat({token:token})
-//         await this.save();
-//         //console.log(register_patient);
-//         console.log("Token:: "+token);
-//         return token;
-//     // const uservar = await jwt.verify(token,"Hellomynameisadarshmoradiyathisthisissdpproject");
-//     // console.log(uservar);
-//     }catch(error){
-//         // res.send("This is Error is in Authantication "+error);
-//         console.log("This is Error is in Authantication "+error);
-//     }
-// }
+patient_info.methods.generateAuthToken = async function(register_patient){
+    try{
+        var token = jwt.sign({username: register_patient.username},"itisforpatientregistration",{expiresIn: '1h'});
+        localStorage.setItem('rtoken',token);
+        // next();  
+    }catch(error){
+        // res.send("This is Error is in Authantication "+error);
+        console.log("This is Error is in Authantication "+error);
+    }
+}
 //Hashing Password
 patient_info.pre('save',async function(next){
     if(this.isModified("pass")){

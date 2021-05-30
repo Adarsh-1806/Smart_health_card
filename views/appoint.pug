@@ -1,0 +1,79 @@
+doctype html
+head
+  title Appoinment
+  meta(name='viewport' content='width=device-width, initial-scale=1')
+  style
+    include ../public/style/PatientPersonalDetails.css
+    include ../public/style/style.css
+body 
+  include links.pug
+  br
+  nav.navbar.navbar-expand-lg.navbar-light.bg-light
+    a.navbar-brand(href='#')
+      i#heartbeaticon.fa.fa-heartbeat.icon
+      |  Smart Health Card
+    button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+      span.navbar-toggler-icon
+    #navbarSupportedContent.collapse.navbar-collapse
+      ul.navbar-nav.mr-auto
+        li.nav-item 
+          a.nav-link(href='/patient/information')
+            | Profile
+            span.sr-only (current)
+        li.nav-item
+          a.nav-link(href='/healthcard') Health Card
+        li.nav-item
+          a.nav-link(href='/patient/myappoint' )  My Appoint
+        li.nav-item
+          a.nav-link(href='/') About
+        li.nav-item
+          a.nav-link(href='/') Log out
+      li#usrname
+        .usericon.fa.fa-user.icon
+        |#{record.firstname} #{record.lastname}
+  // background
+  .DoctorDetailForm
+    h1 Available  Doctors
+  .container-xl
+    .table-responsive
+      .table-wrapper
+        .table-title
+          .row
+            .col-sm-6
+              h2 List of doctors In Your City
+            .col-sm-6
+        table.table.table-striped.table-hover
+          if len >= 1
+            thead
+              tr
+                th Index
+                th Doctor
+                th Contact
+                th Rating
+                th Appintment
+            tbody
+                -for (var i = 0; i < len; i++) 
+                  -const cnt = i;
+                  -const did = obj[i]._id;
+                  tr
+                    th #{i+1}
+                    td #{obj[i].name}
+                    td #{obj[i].mobileno}
+                    td #{obj[i].rating}  
+                    td 
+                      button(type='button', onclick='myFunction("'+ (obj[i]._id)+'")' ) Book
+          else
+            b No Doctors Available
+        .clearfix
+  br
+  br
+  br
+  script(type='text/javascript').
+    function myFunction(cn) {
+      try{
+      alert("Your Booking has been confirmed...");
+      $.post('/apt' , {did:cn})
+      }catch(error){
+        document.write(error);
+      }
+    }

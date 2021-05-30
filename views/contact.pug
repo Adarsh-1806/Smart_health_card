@@ -1,0 +1,99 @@
+doctype html
+head
+  link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' integrity='sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm' crossorigin='anonymous')
+  link(rel='stylesheet' href='contact1.css')
+  link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+  link(rel='stylesheet' href='https://use.fontawesome.com/releases/v5.6.3/css/all.css' integrity='sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/' crossorigin='anonymous')
+  script(src='https://code.jquery.com/jquery-3.2.1.slim.min.js' integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN' crossorigin='anonymous')
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js' integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q' crossorigin='anonymous')
+  script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js' integrity='sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl' crossorigin='anonymous')
+  style
+    include ../public/style/contact.css
+br
+nav.navbar.navbar-expand-lg.navbar-light.bg-light
+  a.navbar-brand(href='#')
+    i#heartbeaticon.fa.fa-heartbeat.icon
+    |  Smart Health Card
+  button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+    span.navbar-toggler-icon
+  #navbarSupportedContent.collapse.navbar-collapse
+    ul.navbar-nav.mr-auto
+      li.nav-item.active
+        a.nav-link(href='/')
+          | Home 
+          span.sr-only (current)
+      li.nav-item
+        a.nav-link(href='/doctor') Doctor
+      li.nav-item
+        a.nav-link(href='/patient') Patient
+      li.nav-item
+        a.nav-link(href='/about') About
+      li.nav-item
+        a.nav-link(href='/contact') Contact Us
+    form.form-inline.my-2.my-lg-0
+      input.form-control.mr-sm-2(type='search' placeholder='Search' aria-label='Search')
+      button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Search
+br
+#carouselExampleSlidesOnly.carousel.slide(data-ride='carousel')
+  .carousel-inner
+    .carousel-item.active
+      img.d-block.w-100(src='../pictures/images/banner41.jpg' alt='First slide')
+section.w3l-contact-11.pt-5
+  .contacts-main.pt-lg-5.pt-3
+    .title-content.text-center
+      h6.sub-titlehny Contact
+      h3.hny-title.mb-0 We&rsquo;re Here to Help You
+      p#ab-para.mb-md-5.mb-4 Have some suggestions or just want to say hi? Contact us:
+  .form-41-mian.section-gap.mt-5
+    .container
+      .d-grid.align-form-map
+        .form-inner-cont
+          form.contact-form(action='')
+            .form-top-left
+              input#w3lName(type='text' name='w3lName' placeholder='Name' required='')
+              input#w3lSender(type='email' name='w3lSender' placeholder='Email*' required='')
+              input#w3lSubject(type='text' name='w3lSubject' placeholder='Subject' required='')
+            br
+            .form-top-righ
+              textarea#w3lMessage(name='w3lMessage' placeholder='Message*' required='')
+            .form-submit.text-right
+              button#btn1.btn.btn-style.btn-primary(type='submit'  onclick="myfunc()") Submit Message
+  .row
+    .col-sm-4
+      .card
+        .card-body
+          i#mapicon.fa.fa-globe(aria-hidden='true')
+          br
+          br
+          h4 Visit Us Daily:
+          p#address.mb-2
+            | New York
+            | United States, LY-90814 Hill Station 2nd Street.
+    .col-sm-4
+      .card
+        .card-body
+          i#phoneicon.fa.fa-phone(aria-hidden='true')
+          br
+          br
+          h4 Phone Us 24/7:
+          p.mb-2.conp
+            a(href='tel:+1-2345-678-11') +1-2345-678-11
+          p.conp
+            a(href='tel:+1-2345-678-11') +1-2345-678-11
+    .col-sm-4
+      .card
+        .card-body
+          i#mailicon.fa.fa-envelope(aria-hidden='true')
+          br
+          br
+          h4 Mail Us 24/7:
+          p.mb-2.conp
+            a.email(href='mailto:SmartHealthCard@email.com') adarshmoradiya001@gmail.com
+          p.conp
+            a.email(href='mailto:SMH_India_gov@email.com') SHC_India_gov@email.com
+  .map
+    iframe(src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3001161.424489281!2d-78.01909140705047!3d42.72866436845163!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4ccc4bf0f123a5a9%3A0xddcfc6c1de189567!2sNew%20York%2C%20USA!5e0!3m2!1sen!2sin!4v1570786994395!5m2!1sen!2sin' frameborder='0' allowfullscreen='')
+    script.
+      function myfunc(){
+        alert("Thank You for Contact us..\n We'll contct you soon!!");
+      }

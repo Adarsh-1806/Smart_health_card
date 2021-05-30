@@ -1,5 +1,6 @@
 doctype html
 head
+  title Healthcard
   link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' integrity='sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm' crossorigin='anonymous')
 
   // fonts
@@ -10,106 +11,63 @@ head
   link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
   style
     include ../public/style/doctorSignInDone.css
-    include ../public/style/card.css
-style.
-  .navbar{
-  border-radius: 30px;
-  margin-left: 0.5em;
-  margin-right: 0.5em;
-  }
-  .navbar-brand{
-  font-size: 25px;
-  }
-  .nav-item{
-  font-size: 20px;
-  margin-left: 0.5em;
-  }
-  .nav-link{
-  color: black !important
-  }
-  .nav-link:hover{
-  background-color: blueviolet;
-  }
-  .nav-item:active{
-  color: blueviolet !important
-  }
-  #username{
-  font-size: 20px;
-  }
-  #usericon{
-  font-size: 25px;
-  margin-right: 0.3em;
-  }
-  #heartbeaticon{
-  color: blue;
-  padding-right: 0.2em;
-  }
+    include ../public/style/dcard.css
+    include ../public/style/navbar.css
 br
-nav.navbar.navbar-expand-lg.navbar-light.bg-light
-  a.navbar-brand(href='#')
-    i#heartbeaticon.fa.fa-heartbeat.icon
-    |  Smart Health Card
-  button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
-    span.navbar-toggler-icon
-  #navbarSupportedContent.collapse.navbar-collapse
-    ul.navbar-nav.mr-auto
-      li.nav-item.active
-        a.nav-link(href='/')
-          | Home 
-          span.sr-only (current)
-      li.nav-item
-        a.nav-link(href='/') Patient
-      li.nav-item
-        a.nav-link(href='#') About
-      li.nav-item
-        a.nav-link(href='/') Log Out
-    //
-      <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form>
-    i#usericon.fa.fa-user.icon
-    p#username  #{record.firstname} #{record.lastname}
-br
-br
-br
-br
-.displaycard
-  link(href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet')
-  .id-card-wrapper
-    .id-card
-      .heading
-        | Smart Health Card
-      .profile-row
-        .dp
-          // <img src="https://via.placeholder.com/420x420">
-        .desc
-          br
-          form(action='#' method='post')
-            | Name
-            p #{record.firstname} #{record.middlename} #{record.lastname}
-            br
-            | Lic. No
-            p #{record.license_no}
-            br
-            | Date of Birth 
-            p #{record.dob}
-            br
-            | BG 
-            p #{record.bloodgroup}
-      .qrcode
-        // <img src="pic1.jpg" alt="#">
-      .photo
-        // <img src="pic1.jpg" alt="#">
-script(type='text/javascript' src='Doctor Details/js/jquery-2.1.4.min.js')
-script(type='text/javascript' src='Doctor Details/js/wickedpicker.js')
-script(type='text/javascript').
-  $('.timepicker').wickedpicker({twentyFour: false});
-// Calendar
-link(rel='stylesheet' href='Doctor Details/css/jquery-ui.css')
-script(src='Doctor Details/js/jquery-ui.js')
-script.
-  $(function() {
-  $( "#datepicker,#datepicker1,#datepicker2,#datepicker3" ).datepicker();
-  });
-// //Calendar
+body
+  nav.navbar.navbar-expand-lg.navbar-light.bg-light
+    a.navbar-brand(href='#')
+      i#heartbeaticon.fa.fa-heartbeat.icon
+      |  Smart Health Card
+    button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+      span.navbar-toggler-icon
+    #navbarSupportedContent.collapse.navbar-collapse
+      ul.navbar-nav.mr-auto
+        li.nav-item.active
+          a.nav-link(href='/patient/information')
+            | Profile 
+            span.sr-only (current)
+        li.nav-item
+          a.nav-link(href='/patient/myappoint') My Appoint
+        li.nav-item
+          a.nav-link(href='/contact') Contact us
+        li.nav-item
+          a.nav-link(href='/') Log Out
+      li#usrname
+        i.usericon.fa.fa-user.icon
+        |#{record.firstname} #{record.lastname}
+  br
+  br
+  br
+  br
+.container
+  .padding
+    .font
+      .top
+        //- var path = #{record.profile}
+        //- var profile = #{JSON.stringify(path)}
+        img(src=imgp)
+      .bottom
+        p #{record.firstname} #{record.lastname}
+        p.desi  
+        .barcode
+          img(src='../pictures/qr.png')
+        br
+        p.no +91 #{record.mobileno}
+        //- p.no part-1,89 harinadad d...sdv..sdf..sfd..sd.
+  .back
+    h1.Details information
+    hr.hr
+    .details-info
+      p
+        b Email : 
+      p #{record.email}
+      br
+      p
+        b Mobile No: 
+      p #{record.mobileno}
+      br
+      p
+        b Address:
+      p #{record.address}
+    hr

@@ -1,5 +1,6 @@
 doctype html
 head
+  title Doctor
   link(href='//fonts.googleapis.com/css?family=Nunito:400,600,700&display=swap' rel='stylesheet')
   link(href='//fonts.googleapis.com/css?family=Roboto:300,400,500,700' rel='stylesheet')
   link(href='//fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet')
@@ -27,9 +28,11 @@ body
             | Home 
             span.sr-only (current)
         li.nav-item
-          a.nav-link(href='#addEmployeeModal' data-toggle='modal') Patient 
+          a.nav-link(href='#getpatient' data-toggle='modal') Patient 
         li.nav-item
           a.nav-link(href='/PatientRegister') Patient register
+        li.nav-item
+          a.nav-link(href='/dappoint') Appointments
         li.nav-item
           a.nav-link(href='/') About
         li.nav-item
@@ -54,7 +57,10 @@ br
           p.det #{record.mobileno}
         .gaps
           p Email
-          p.det #{record.dob} 
+          p.det #{record.email} 
+        .gaps
+          p Study
+          p.det #{record.study} 
       .right-agileinfo.same
         .gaps
           p License Number
@@ -65,43 +71,50 @@ br
         .gaps
           p Gender
           p.det #{record.gender}
+        .gaps
+          p Rating
+          p.det #{record.rating}
       .clear
       // <input type="submit" value="Make an appointment">
 br
 br
 br
 br
-.displaycard
-  link(href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet')
-  .id-card-wrapper
-    .id-card
-      .heading
-        | Smart Health Card
-      .profile-row
-        .dp
-          // <img src="https://via.placeholder.com/420x420">
-        .desc
-          form(action='#' method='post')
-            | Name
-            p #{record.name} 
-            br
-            | Lic. No
-            p #{record.license_no}
-            br
-            | Date of Birth 
-            p #{record.dob}
-            br
-            | BG 
-            p #{record.bloodgroup}
-            
-      .qrcode
-        // <img src="pic1.jpg" alt="#">
-      .photo
-        // <img src="pic1.jpg" alt="#">
+
+.container
+  .padding
+    .font
+      .top
+        img(src=imgp)
+      .bottom
+        p #{record.name}
+        p.desi #{record.study}
+        .barcode
+          img(src='../pictures/qr.png')
+        br
+        p.no +91 #{record.mobileno}
+        //- p.no part-1,89 harinadad d...sdv..sdf..sfd..sd.
+  .back
+    h1.Details information
+    hr.hr
+    .details-info
+      p
+        b Email : 
+      p #{record.email}
+      p
+        b Mobile No: 
+      p #{record.mobileno}
+      p
+        b Clinic Address:
+      p #{record.city}
+    //- .logo
+    //-   img(src='barcode.PNG')
+    hr
+
 br
 br
 br
-#addEmployeeModal.modal.fade
+#getpatient.modal.fade
   .modal-dialog
     .modal-content
       form(action='/doctorgetpatient' method='post' )
